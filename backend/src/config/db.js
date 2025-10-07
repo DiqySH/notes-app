@@ -1,18 +1,21 @@
 import mysql2 from "mysql2/promise";
 
 export const pool = mysql2.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "notes_app",
+  host: "sql12.freesqldatabase.com",
+  user: "sql12801517",
+  password: "PTrKaXiqBA",
+  database: "sql12801517",
+  waitForConnections: true,
+  connectionLimit: 5,
+  queueLimit: 0,
 });
 
 export const testConnection = async () => {
   try {
     const connection = await pool.getConnection();
+    console.log("Database connected successfully.");
     connection.release();
-    console.log("Database connected successfully!");
-  } catch (err) {
-    console.error("Database connection failed");
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
   }
 };

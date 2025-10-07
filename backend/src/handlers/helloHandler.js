@@ -1,5 +1,5 @@
 export const sayHello = (req, res) => {
   res.status(200).json({
-    message: "hello, Diqy",
+    message: "Greetings, Diqy!",
   });
 };
